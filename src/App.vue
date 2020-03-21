@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/" data-cy='homeLink'>Home</router-link> |
-      <router-link to="/about" data-cy='aboutLink'>About</router-link>
+      <router-link to="/about" data-cy='aboutLink'>About</router-link> | 
+      <router-link to="/lists" data-cy='listsLink'>Lists</router-link>
     </div>
     <router-view/>
   </div>

@@ -17,6 +17,15 @@ describe('Home view', () => {
     cy.get('[data-cy=aboutLink]').click()
     cy.contains('h1', 'This is an about page')
   })
+  it('has a home link', () => {
+    cy.get('[data-cy=homeLink]').should('be.visible')
+  })
+  it('has a about link', () => {
+    cy.get('[data-cy=aboutLink]').should('be.visible')
+  })
+  it('has a lists link', () => {
+    cy.get('[data-cy=listsLink]').should('be.visible')
+  })
 })
 
 describe('About view', () => {
@@ -29,5 +38,15 @@ describe('About view', () => {
   it('links to the home page corretly', () => {
     cy.get('[data-cy=homeLink]').click()
     cy.contains('h1', 'Welcome to the cypress test')
+  })
+})
+
+describe('List View', () => {
+  beforeEach( () => {
+    cy.visit('/lists')
+  })
+  it('links to the list page corretly', () => {
+    cy.get('[data-cy=listsLink]').click()
+    cy.contains('h1', 'Welcome to the List Page')
   })
 })
