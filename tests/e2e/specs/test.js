@@ -48,5 +48,19 @@ describe('List View', () => {
   it('links to the list page corretly', () => {
     cy.get('[data-cy=listsLink]').click()
     cy.contains('h1', 'Welcome to the List Page')
+    cy.get('ul').find('li').should('have.length', 0)
+  })
+  it('adds a list item', () => {
+    cy.get('input').type('Item 1')
+    cy.get('button').click()
+    cy.contains('li', 'Item 1')
+  })
+  it('can add multiple items', () => {
+    cy.get('input').type('Item 1')
+    cy.get('button').click()
+    cy.get('input').type('Item 2')
+    cy.get('button').click()
+    cy.get('ul').find('li').should('have.length', 2)
+    cy.get('input').should('be.empty');
   })
 })
